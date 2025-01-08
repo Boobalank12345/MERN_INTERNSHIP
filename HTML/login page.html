@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="loginBox">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br><br>
+            <button type="submit" onclick="check()">Submit</button>
+        </form>
+        <h1 id="pat"> </h1>
+        <div id="error"></div>
+    </div>
+    <style>
+        #error {
+            color: rgb(68, 0, 255);
+        }
+        #loginBox {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            margin-top: 50%;
+            margin-bottom: 50%;
+            padding: 10px;
+            border: 5px solid #cccccc;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        // var x =document.getElementById("pat");
+        // for(var i = 1; i <=5;i++){
+        //     for(var j =1;j<=i;j++){
+                
+        //         x.innerHTML += j + " ";
+        //     }
+        //     x.innerHTML += "<br>";
+        // }
+
+        function check(){
+            var one = document.getElementById("username").value;
+            var two = document.getElementById("password").value;
+
+            var user=one;
+            var pass=two;
+            if(one !="" && two !=""){
+                window.location.href = "https://www.example.com";
+                document.write(user+ "<br>" + pass);
+            }
+            else{
+                window.location.reload();
+            }
+        }
+    </script>
+</body>
+</html>
