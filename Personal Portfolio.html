@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: red;
+            color: black;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: orange;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .intro {
+            text-align: center;
+        }
+        .projects, .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .project, .skill {
+            background: aqua;
+            padding: 1rem;
+            border: 1px solid red;
+            border-radius: 5px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            background: gold;
+            color: black;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hey I'M Boobalan.K A Student</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <div class="intro">
+            <h2>About Me</h2>
+            <p>Hello! I am Boobalan, a dedicated software developer with a passion for problem-solving and innovation. My expertise lies in building efficient systems, such as personalized news recommendation platforms, leveraging Java and JDBC for seamless database connectivity. I thrive on creating impactful solutions that enhance user experiences.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Personalized News Recommendation</h3>
+                <p>A system that curates news articles based on user preferences using Java and JDBC.</p>
+            </div>
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>This portfolio showcasing my skills and projects. Built with HTML, CSS, and JavaScript.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill">Java</div>
+            <div class="skill">JDBC</div>
+            <div class="skill">DBMS</div>
+            <div class="skill">HTML & CSS</div>
+            <div class="skill">Teamwork & Leadership</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:boobalan.k2023lcse@sece.ac.in">boobalan.k2023lcse@sece.ac.in</a></p>
+        <p>Phone: 9360500232</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/Boobalan/" target="_blank">linkedin.com/in/Boobalan</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Boobalan. All rights reserved.</p>
+    </footer>
+</body>
+</html>
