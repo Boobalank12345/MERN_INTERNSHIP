@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping List App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    select, input, button {
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: calc(100% - 24px);
+    }
+    button {
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f1f1f1;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    .edit-mode input {
+      width: 70%;
+    }
+    .edit-mode button {
+      width: 25%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Shopping List App</h1>
+    <div>
+      <select id="category">
+        <option value="Groceries">Groceries</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing">Clothing</option>
+      </select>
+      <input type="text" id="newItem" placeholder="Add a new item">
+      <button onclick="addItem()">Add Item</button>
+    </div>
+    <div id="categories"></div>
+  </div>
+
+  <script>
+    const categories = [
+      { name: "Groceries", items: [] },
+      { name: "Electronics", items: [] },
+      { name: "Clothing", items: [] },
+    ];
+
+    function renderCategories() {
+      const categoriesDiv = document.getElementById("categories");
+      categoriesDiv.innerHTML = "";
+
+      categories.forEach((category) => {
+        const categoryDiv = document.createElement("div");
+        categoryDiv.innerHTML = `<h2>${category.name}</h2>`;
+        const ul = document.createElement("ul");
+
+        category.items.forEach((item, index) => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+            <span>${item}</span>
+            <div>
+              <button onclick="editItem('${category.name}', ${index})">Edit</button>
+              <button onclick="deleteItem('${category.name}', ${index})">Delete</button>
+            </div>
+          `;
+          ul.appendChild(li);
+        });
+
+        categoryDiv.appendChild(ul);
+        categoriesDiv.appendChild(categoryDiv);
+      });
+    }
+
+    function addItem() {
+      const newItem = document.getElementById("newItem").value.trim();
+      const selectedCategory = document.getElementById("category").value;
+
+      if (!newItem) {
+        alert("Item cannot be empty.");
+        return;
+      }
+
+      const category = categories.find((cat) => cat.name === selectedCategory);
+
+      if (category.items.includes(newItem)) {
+        alert("Item already exists in this category.");
+        return;
+      }
+
+      category.items.push(newItem);
+      document.getElementById("newItem").value = "";
+      renderCategories();
+    }
+
+    function editItem(categoryName, index) {
+      const category = categories.find((cat) => cat.name === categoryName);
+      const item = category.items[index];
+
+      const newName = prompt("Edit item:", item);
+      if (newName && newName.trim() !== "") {
+        category.items[index] = newName.trim();
+        renderCategories();
+      }
+    }
+
+    function deleteItem(categoryName, index) {
+      const category = categories.find((cat) => cat.name === categoryName);
+      category.items.splice(index, 1);
+      renderCategories();
+    }
+
+    // Initial render
+    renderCategories();
+  </script>
+</body>
+</html>
