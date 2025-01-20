@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping List App</title>
+  <title>Recipe Finder</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -21,7 +21,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    select, input, button {
+    input, button {
       padding: 10px;
       margin: 5px 0;
       border: 1px solid #ddd;
@@ -42,110 +42,77 @@
       padding: 0;
     }
     li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       background: #f1f1f1;
       margin: 5px 0;
       padding: 10px;
       border-radius: 4px;
     }
-    .edit-mode input {
-      width: 70%;
-    }
-    .edit-mode button {
-      width: 25%;
+    .no-recipes {
+      color: red;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Shopping List App</h1>
-    <div>
-      <select id="category">
-        <option value="Groceries">Groceries</option>
-        <option value="Electronics">Electronics</option>
-        <option value="Clothing">Clothing</option>
-      </select>
-      <input type="text" id="newItem" placeholder="Add a new item">
-      <button onclick="addItem()">Add Item</button>
-    </div>
-    <div id="categories"></div>
+    <h1>Recipe Finder</h1>
+    <p>Enter ingredients (comma-separated) to find matching recipes:</p>
+    <input type="text" id="ingredients" placeholder="e.g., tomato, cheese, bread">
+    <button onclick="findRecipes()">Find Recipes</button>
+    <h2>Results:</h2>
+    <ul id="recipeList"></ul>
   </div>
 
   <script>
-    const categories = [
-      { name: "Groceries", items: [] },
-      { name: "Electronics", items: [] },
-      { name: "Clothing", items: [] },
+    const recipes = [
+      {
+        name: "Grilled Cheese Sandwich",
+        ingredients: ["bread", "cheese", "butter"],
+      },
+      {
+        name: "Tomato Soup",
+        ingredients: ["tomato", "onion", "garlic", "salt"],
+      },
+      {
+        name: "Pasta",
+        ingredients: ["pasta", "tomato", "cheese", "olive oil"],
+      },
+      {
+        name: "Salad",
+        ingredients: ["lettuce", "tomato", "cucumber", "olive oil"],
+      },
+      {
+        name: "Garlic Bread",
+        ingredients: ["bread", "garlic", "butter"],
+      },
     ];
 
-    function renderCategories() {
-      const categoriesDiv = document.getElementById("categories");
-      categoriesDiv.innerHTML = "";
+    function findRecipes() {
+      const input = document.getElementById("ingredients").value.trim();
+      const recipeList = document.getElementById("recipeList");
+      recipeList.innerHTML = "";
 
-      categories.forEach((category) => {
-        const categoryDiv = document.createElement("div");
-        categoryDiv.innerHTML = `<h2>${category.name}</h2>`;
-        const ul = document.createElement("ul");
+      if (!input) {
+        alert("Please enter at least one ingredient.");
+        return;
+      }
 
-        category.items.forEach((item, index) => {
+      const inputIngredients = input.split(",").map((item) => item.trim().toLowerCase());
+
+      const matchingRecipes = recipes.filter((recipe) =>
+        recipe.ingredients.some((ingredient) => inputIngredients.includes(ingredient))
+      );
+
+      if (matchingRecipes.length === 0) {
+        recipeList.innerHTML = `<li class="no-recipes">No matching recipes found.</li>`;
+      } else {
+        matchingRecipes.forEach((recipe) => {
           const li = document.createElement("li");
-          li.innerHTML = `
-            <span>${item}</span>
-            <div>
-              <button onclick="editItem('${category.name}', ${index})">Edit</button>
-              <button onclick="deleteItem('${category.name}', ${index})">Delete</button>
-            </div>
-          `;
-          ul.appendChild(li);
+          li.textContent = `${recipe.name} (Ingredients: ${recipe.ingredients.join(", ")})`;
+          recipeList.appendChild(li);
         });
-
-        categoryDiv.appendChild(ul);
-        categoriesDiv.appendChild(categoryDiv);
-      });
-    }
-
-    function addItem() {
-      const newItem = document.getElementById("newItem").value.trim();
-      const selectedCategory = document.getElementById("category").value;
-
-      if (!newItem) {
-        alert("Item cannot be empty.");
-        return;
-      }
-
-      const category = categories.find((cat) => cat.name === selectedCategory);
-
-      if (category.items.includes(newItem)) {
-        alert("Item already exists in this category.");
-        return;
-      }
-
-      category.items.push(newItem);
-      document.getElementById("newItem").value = "";
-      renderCategories();
-    }
-
-    function editItem(categoryName, index) {
-      const category = categories.find((cat) => cat.name === categoryName);
-      const item = category.items[index];
-
-      const newName = prompt("Edit item:", item);
-      if (newName && newName.trim() !== "") {
-        category.items[index] = newName.trim();
-        renderCategories();
       }
     }
-
-    function deleteItem(categoryName, index) {
-      const category = categories.find((cat) => cat.name === categoryName);
-      category.items.splice(index, 1);
-      renderCategories();
-    }
-
-    // Initial render
-    renderCategories();
   </script>
 </body>
 </html>
