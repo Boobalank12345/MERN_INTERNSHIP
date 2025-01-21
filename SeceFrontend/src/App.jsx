@@ -1,4 +1,4 @@
-import About from './components/about'
+import About from './components/About'
 import {ClassComponent,Gallery} from './components/classComp'
 import Contact from './components/Contact'
 import viteLogo from '/vite.svg'
