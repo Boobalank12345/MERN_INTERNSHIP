@@ -14,6 +14,7 @@ function App() {
           <Route path='/About' element={<About/>}></Route>
           <Route path="/Gallery" element={<Gallery image="SECE logo" page="Gallery"/>}></Route>
           <Route path="/Contact" element={<Contact/>}></Route>
+          <Route path="/ClassComp" element={<ClassComp/>}></Route>
         </Routes>
     </BrowserRouter>
         )
