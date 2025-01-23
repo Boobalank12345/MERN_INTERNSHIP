@@ -8,6 +8,9 @@ import UseState from "./components/Hooks/useState";
 import Signup from "./components/Signup";
 import UseEffect from "./components/Hooks/UseEffect";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
+import UseRef from "./components/Hooks/UseRef";
+import UseMemo from "./components/Hooks/UseMemo";
+import UseCallback from "./components/Hooks/UseCallback";
 function App() { 
   return (
     <BrowserRouter>
@@ -21,10 +24,14 @@ function App() {
           <Route path="/Signup" element={<Signup/>}></Route>
           <Route path="/UseState" element={<UseState/>}></Route>
           <Route path="/UseEffect" element={<UseEffect/>}></Route>
+          <Route path="/use-ref" element={<UseRef/>}></Route>
+          <Route path="/use-memo" element={<UseMemo/>}></Route>
+          <Route path="/use-call" element={<UseCallback/>}></Route>
+
           {/* <Route path="/use-api" element={<UseEffectAPI/>}></Route> */}
             </Routes>
     </BrowserRouter>
-        )
-  }
+        );
+  };
   
   export default App;

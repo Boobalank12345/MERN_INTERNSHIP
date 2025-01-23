@@ -1,0 +1,30 @@
+import { useState } from "react";
+const UseCallback=()=>{
+    var[num,setNum]=useState(0);
+    var[dark,setDark]=useState(true);
+    var styling={
+      backgroundColor:dark?"black":"white",
+      color:dark?"white":"black"
+    }
+    var getItems=()=>{
+      return [num+1,num+2,num+3]
+    }
+
+    return(
+        <div style={styling}>
+          <button onClick={()=>setDark(dark =>!dark)}>Theme Change</button>
+            <h2>This Page is meant for UseCallback Hooks!!</h2>
+            <input 
+              type="number" 
+              value={num} 
+              onChange={
+                (e)=>{setNum(e.target.value)
+                }}/>
+
+               <h4> The number is {num}</h4>
+               {/*/<List fun=getItems/>/*/}
+        </div>
+    );
+
+};
+export default UseCallback;

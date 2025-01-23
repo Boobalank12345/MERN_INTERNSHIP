@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import { useEffect} from 'react'
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect} from 'react';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
+import { useRef } from 'react';
 
 const Navbar = ({ onLogout }) => {
 
@@ -30,6 +31,8 @@ const Navbar = ({ onLogout }) => {
                     <li><Link to='/UseEffect' className="link">UseEffect</Link></li>
                     <li><Link to='/signUp' className="link">SignUp</Link></li>
                     <li><Link to='/Login' className="link">Login</Link></li>
+                    <li><Link to='/UseRef' className="link">UseRef</Link></li>
+                    <li><Link to='/use-memo' className="link">UseMemo</Link></li>
 
                     <li><Link to='/' className="link" onClick={onLogout}>Logout</Link></li>
                 </ol>
