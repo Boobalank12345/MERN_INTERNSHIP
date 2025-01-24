@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ListItems from "./List";
 const UseCallback=()=>{
     var[num,setNum]=useState(0);
     var[dark,setDark]=useState(true);
@@ -18,11 +19,12 @@ const UseCallback=()=>{
               type="number" 
               value={num} 
               onChange={
-                (e)=>{setNum(e.target.value)
-                }}/>
-
-               <h4> The number is {num}</h4>
-               {/*/<List fun=getItems/>/*/}
+                (e)=>{setNum(parseInt(e.target.value))
+                }}
+            />
+            <h4> The number is {num}</h4>
+            {/*<List fun=getItems/>/*/}
+            <ListItems func={getItems}/>
         </div>
     );
 
