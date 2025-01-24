@@ -27,6 +27,7 @@ const Navbar = ({ onLogout }) => {
                             <li>useEffect</li>
                         </ul>)}
                     </div>
+                    <li><Link to='/react-lifecycle-methods' className="link">React Lifecycle Methods</Link></li>
                     <li><Link to='/UseState' className="link">UseState</Link></li>
                     <li><Link to='/UseEffect' className="link">UseEffect</Link></li>
                     <li><Link to='/signUp' className="link">SignUp</Link></li>

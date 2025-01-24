@@ -11,12 +11,14 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import UseRef from "./components/Hooks/UseRef";
 import UseMemo from "./components/Hooks/UseMemo";
 import UseCallback from "./components/Hooks/UseCallback";
+import ReactLifecycleMethods from "./components/ReactLifeCycleMethods";
 function App() { 
   return (
     <BrowserRouter>
       <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>}></Route>
+          <Route path='/react-lifecycle-methods' element={<ReactLifecycleMethods/>}></Route>
           <Route path='/About' element={<About/>}></Route>
           <Route path="/Gallery" element={<Gallery image="SECE logo" page="Gallery"/>}></Route>
           <Route path="/Contact" element={<Contact/>}></Route>

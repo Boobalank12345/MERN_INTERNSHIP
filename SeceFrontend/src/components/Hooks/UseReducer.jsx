@@ -21,4 +21,4 @@ const UseReducerEX=()=>{
         </div>
     )
 }
-export default UseReducerEX
+export default UseReducerEX;
