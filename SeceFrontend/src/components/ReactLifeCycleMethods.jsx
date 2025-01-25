@@ -27,7 +27,7 @@ class ReactLifecycleMethods extends React.Component {
         <h1>This is React Lifecycle Methods</h1>
         <h2>The state value is {this.state.number}</h2>
         <button
-          onMouseEnter={this.updateNum}
+          onClick={this.updateNum}
         >
           +
         </button>

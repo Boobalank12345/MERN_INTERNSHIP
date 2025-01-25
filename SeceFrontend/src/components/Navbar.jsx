@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect} from 'react';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import { useRef } from 'react';
+import Memo from '../../Memoization/Memo';
 
 const Navbar = ({ onLogout }) => {
 
@@ -34,6 +35,8 @@ const Navbar = ({ onLogout }) => {
                     <li><Link to='/Login' className="link">Login</Link></li>
                     <li><Link to='/UseRef' className="link">UseRef</Link></li>
                     <li><Link to='/use-memo' className="link">UseMemo</Link></li>
+                    <li><Link to='/use-context' className="link">Student</Link></li>
+                    <li><Link to='/memo' className="link">Memo</Link></li>
 
                     <li><Link to='/' className="link" onClick={onLogout}>Logout</Link></li>
                 </ol>
