@@ -1,10 +1,13 @@
-const UpdateText=()=>{
-    console.log("Update text")
-    return(
-        <div>
-            <h2>Update Text </h2>
-            <h3>Value is {value}</h3>
-        </div>
-    );
+import {memo} from 'react'
+
+
+const UpdateText = ({value}) => {
+  return (
+    <div>
+      <h2>Update number 1</h2>
+      <h3>The value is {value}</h3>
+    </div>
+  );
 };
-export default UpdateText;
+
+export default memo(UpdateText);

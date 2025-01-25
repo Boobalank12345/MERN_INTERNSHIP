@@ -4,7 +4,12 @@ import { useEffect} from 'react';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import { useRef } from 'react';
 import Memo from '../../Memoization/Memo';
-
+import UpdateNumber from '../../Memoization/UpdateNumber';
+import UpdateText from '../../Memoization/UpdateText';
+import HOC from './HOC/HOC';
+import Button from './HOC/Button';
+import trackingButtonComponent from './HOC/TrackingButtonComponent';
+import UseRef from './Hooks/UseRef';
 const Navbar = ({ onLogout }) => {
 
     var [dropdown, showDropdown] = useState(false)
@@ -33,10 +38,17 @@ const Navbar = ({ onLogout }) => {
                     <li><Link to='/UseEffect' className="link">UseEffect</Link></li>
                     <li><Link to='/signUp' className="link">SignUp</Link></li>
                     <li><Link to='/Login' className="link">Login</Link></li>
-                    <li><Link to='/UseRef' className="link">UseRef</Link></li>
+                    <li><Link to='/use-ref' className="link">UseRef</Link></li>
                     <li><Link to='/use-memo' className="link">UseMemo</Link></li>
                     <li><Link to='/use-context' className="link">Student</Link></li>
                     <li><Link to='/memo' className="link">Memo</Link></li>
+                    <li><Link to='/update-number' className="link">UpdateNumber</Link></li>
+                    <li><Link to='/update-text' className="link">UpdateText</Link></li>
+                    <li><Link to='/HOC' className="link">HOC</Link></li>
+                    <li><Link to='/Button' className="link">Button</Link></li>
+                    <li><Link to='/tracking-button' className="link">TrackingButtonComponents</Link></li>
+                    
+
 
                     <li><Link to='/' className="link" onClick={onLogout}>Logout</Link></li>
                 </ol>

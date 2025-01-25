@@ -15,7 +15,11 @@ import ReactLifecycleMethods from "./components/ReactLifeCycleMethods";
 import { useContext } from "react";
 import Student from "./components/Hooks/Student";
 import Memo from "../Memoization/Memo";
-
+import UpdateNumber from "../Memoization/UpdateNumber";
+import UpdateText from "../Memoization/UpdateText";
+import HOC from "./components/HOC/HOC";
+import Button from "./components/HOC/Button";
+import trackingButtonComponent from "./components/HOC/TrackingButtonComponent";
 function App() { 
   return (
     <BrowserRouter>
@@ -35,7 +39,11 @@ function App() {
           <Route path="/use-call" element={<UseCallback/>}></Route>
           <Route path="/use-context" element={<Student/>}></Route>
           <Route path="/memo" element={<Memo/>}></Route>
-
+          <Route path="/update-number" element={<UpdateNumber/>}></Route>
+          <Route path="/update-text" element={<UpdateText/>}></Route>
+          <Route path="/button" element={<Button/>}></Route>
+          <Route path="/tracking-button" element={<trackingButtonComponent/>}></Route>
+          
           {/* <Route path="/use-api" element={<UseEffectAPI/>}></Route> */}
             </Routes>
     </BrowserRouter>
