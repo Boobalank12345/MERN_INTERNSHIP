@@ -1,23 +1,18 @@
-import useLocalStorage from "./CustomHooks/SampleCustomHook";
+import { useEffect, useState } from "react";
 
-const UseLocalStorage = () => {
-  var [text, setText] = useLocalStorage("customerID","");
-  var [pass, setPass] = useLocalStorage("password","");
-  return (
-    <div>
-      <h2>Utilizing Custom Hook Created</h2>
-      CustomerID:<input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      /><br />
-      Password:<input
-        type="password"
-        value={pass}
-        onChange={(e) => setPass(e.target.value)}
-      />
-      <h3>The text typed is {text}</h3>
-    </div>
-  );
+const useLocalStorage = (key, value) => {
+  var [text, setText] = useState(() => {
+    const jsonValue = localStorage.getItem(key);
+    if (jsonValue != null) return JSON.parse(jsonValue);
+    return value;
+  });
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(text));
+    return(
+        localStorage.setItem(key, JSON.stringify(""))
+    )
+  }, [key, text]
+);
+  return [text, setText];
 };
-export default UseLocalStorage;
+export default useLocalStorage;
