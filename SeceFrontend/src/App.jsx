@@ -41,6 +41,7 @@ function App() {
           <Route path="/memo" element={<Memo/>}></Route>
           <Route path="/update-number" element={<UpdateNumber/>}></Route>
           <Route path="/update-text" element={<UpdateText/>}></Route>
+          <Route path="/HOC" element={<HOC/>}></Route>
           <Route path="/button" element={<Button/>}></Route>
           <Route path="/tracking-button" element={<trackingButtonComponent/>}></Route>
           
@@ -49,5 +50,4 @@ function App() {
     </BrowserRouter>
         );
   };
-  
   export default App;

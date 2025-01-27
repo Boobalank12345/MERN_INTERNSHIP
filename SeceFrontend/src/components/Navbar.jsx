@@ -9,7 +9,6 @@ import UpdateText from '../../Memoization/UpdateText';
 import HOC from './HOC/HOC';
 import Button from './HOC/Button';
 import trackingButtonComponent from './HOC/TrackingButtonComponent';
-import UseRef from './Hooks/UseRef';
 const Navbar = ({ onLogout }) => {
 
     var [dropdown, showDropdown] = useState(false)
