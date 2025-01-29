@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const mdb = require("mongoose");
 const dotenv = require("dotenv");
+const Signup=require("Signup");
 
 
 dotenv.config();
